@@ -356,7 +356,7 @@
 
 .popup.active {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) translateY(0);
   pointer-events: auto;
 }
 
@@ -399,13 +399,39 @@ let scrollTimer = null;
 function togglePopup(button, popupId) {
   const popup = document.getElementById(popupId);
   const rect = button.getBoundingClientRect();
+  
+  popup.style.visibility = "hidden";
+  popup.style.display = "block";
+  const popupHeight = popup.offsetHeight;
   const popupWidth = Math.max(popup.offsetWidth, 180);
+  popup.style.display = "";
+  popup.style.visibility = "";
 
-  popup.style.left = `${Math.min(
+  const spaceBelow = window.innerHeight - rect.bottom;
+  const spaceAbove = rect.top;
+  let topPosition;
+
+  if (popupHeight + 10 <= spaceBelow) {
+    topPosition = rect.bottom + window.scrollY + 8;
+  } else if (popupHeight + 10 <= spaceAbove) {
+    topPosition = rect.top + window.scrollY - popupHeight - 8;
+  } else {
+    topPosition = Math.max(
+      10 + window.scrollY,
+      Math.min(
+        window.scrollY + window.innerHeight - popupHeight - 10,
+        rect.bottom + window.scrollY + 8
+      )
+    );
+  }
+
+  const leftPosition = Math.min(
     window.innerWidth - popupWidth - 10,
     Math.max(10, rect.left + rect.width / 2 - popupWidth / 2)
-  )}px`;
-  popup.style.top = `${rect.bottom + window.scrollY + 8}px`;
+  );
+
+  popup.style.left = `${leftPosition}px`;
+  popup.style.top = `${topPosition}px`;
 
   if (popup.classList.contains('active')) {
     closePopup();
