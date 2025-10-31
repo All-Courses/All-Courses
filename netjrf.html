@@ -1,0 +1,77 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div style="font-family: 'Poppins', sans-serif; text-align: center; background: linear-gradient(90deg, #fffef9, #f4faff, #fff7f5, #f3fff8); background-size: 300% 300%; padding: 28px 15px; border-radius: 12px; overflow: hidden; position: relative; animation: bgShift 10s ease infinite; width: 90%; max-width: 900px; margin: 0 auto;">
+
+  <style>
+    /* Moving gradient background */
+    @keyframes bgShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Floating motion for doodles */
+    @keyframes float {
+      0% {transform: translateY(0);}
+      50% {transform: translateY(-8px);}
+      100% {transform: translateY(0);}
+    }
+
+    /* Small book animation */
+    @keyframes floatBook {
+      0% {transform: translateY(0) scale(0.8);}
+      50% {transform: translateY(-6px) scale(1);}
+      100% {transform: translateY(0) scale(0.8);}
+    }
+
+    /* Transparent cartoon book */
+    .book-icon {
+      font-size: 2em;
+      opacity: 0.25;
+      animation: floatBook 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Doodles */
+    .doodle {
+      position: absolute;
+      opacity: 0.15;
+      font-size: 1.8em;
+      animation: float 6s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Title text */
+    .title {
+      font-size: 3.8em;
+      font-weight: 900;
+      letter-spacing: 7px;
+      color: #555;
+      text-shadow: none;
+      display: inline-block;
+      vertical-align: middle;
+      z-index: 2;
+    }
+
+    /* Responsive scaling */
+    @media (max-width: 600px) {
+      .title { font-size: 2.8em; letter-spacing: 4px; }
+      .doodle { font-size: 1.3em; }
+      .book-icon { font-size: 1.5em; }
+    }
+  </style>
+
+  <!-- Doodles -->
+  <span class="doodle" style="top:15%; left:15%; animation-delay:0s;">✏️</span>
+  <span class="doodle" style="bottom:20%; right:25%; animation-delay:1s;">📚</span>
+  <span class="doodle" style="top:45%; left:40%; animation-delay:2s;">🎓</span>
+  <span class="doodle" style="bottom:15%; left:25%; animation-delay:3s;">📐</span>
+
+  <!-- Title with animated small books on sides -->
+  <div style="display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; white-space: nowrap; position: relative; z-index: 2; gap: 15px;">
+    <span class="book-icon" style="animation-delay: 0s;">📖</span>
+    <span class="title">NET JRF</span>
+    <span class="book-icon" style="animation-delay: 0.5s;">📖</span>
+  </div>
+
+</div>
