@@ -75,13 +75,16 @@
   </div>
 </div>
 
-  <!-- 🔴 GK / SST / SCIENCE (Light Red) -->
 <div class="R">
-  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'gkPopup')">GK PAPER 1</div>
-  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'sstPopup')">SST</div>
+  <div class="B" style="--btn-bg:#FFEE8C;" onclick="togglePopup(this, 'gkPopup')">GK PAPER 1ST</div>
+</div>
+    <!-- 🔴 GK / SST / SCIENCE (Light Red) -->
+<div class="R">
+  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'hisPopup')">HISTORY</div>
+  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'geoPopup')">GEOGRAPHY</div>
 </div>
 <div class="R">
-  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'sciencePopup')">SCIENCE</div>
+  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'polPopup')">POLITY</div>
 </div>
 
 <!-- 🔵 HINDI / ENGLISH / MATHS (Light Blue) -->
@@ -93,13 +96,22 @@
   <div class="B" style="--btn-bg:#E3F2FD;" onclick="togglePopup(this, 'mathsPopup')">MATHS</div>
 </div>
 
-<!-- 🟠 URDU / PUNJABI / SANSKRIT (Very Light Orange) -->
 <div class="R">
-  <div class="B" style="--btn-bg:#ffd6a5;" onclick="togglePopup(this, 'urduPopup')">URDU</div>
-  <div class="B" style="--btn-bg:#ffd6a5;" onclick="togglePopup(this, 'punjabiPopup')">PUNJABI</div>
+  <div class="B" style="--btn-bg:#84eab3;" onclick="togglePopup(this, 'physicsPopup')">PHYSICS</div>
+  <div class="B" style="--btn-bg:#84eab3;" onclick="togglePopup(this, 'chemPopup')">CHEMISTRY</div>
 </div>
 <div class="R">
-  <div class="B" style="--btn-bg:#ffd6a5;" onclick="togglePopup(this, 'sanskritPopup')">SANSKRIT</div>
+  <div class="B" style="--btn-bg:#84eab3;" onclick="togglePopup(this, 'bioPopup')">BIOLOGY</div>
+</div>
+
+<!-- 🟠 URDU / PUNJABI / SANSKRIT (Very Light Orange) -->
+<div class="R">
+  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'comPopup')">COMMERCE</div>
+  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'ecoPopup')">
+  ECONOMICS</div>
+</div>
+<div class="R">
+  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'sanskritPopup')">SANSKRIT</div>
 </div>
 
 <!-- 🔴 POPUPS FOR LIGHT RED -->
@@ -113,7 +125,17 @@
   </ul>
 </div>
 
-<div class="popup" id="sstPopup">
+<div class="popup" id="hisPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Utkarsh Classes</li>
+    <li>Lucent Academy</li>
+    <li>Testbook</li>
+    <li>StudyIQ</li>
+  </ul>
+</div>
+
+<div class="popup" id="geoPopup">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
     <li>Unacademy</li>
@@ -123,7 +145,7 @@
   </ul>
 </div>
 
-<div class="popup" id="sciencePopup">
+<div class="popup" id="polPopup">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
     <li>Physics Wallah</li>
@@ -164,8 +186,7 @@
   </ul>
 </div>
 
-<!-- 🟠 POPUPS FOR VERY LIGHT ORANGE -->
-<div class="popup" id="urduPopup">
+<div class="popup" id="physicsPopup">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
     <li>JMI Coaching</li>
@@ -175,7 +196,38 @@
   </ul>
 </div>
 
-<div class="popup" id="punjabiPopup">
+<div class="popup" id="chemPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Punjabi Adhyayan</li>
+    <li>Chandigarh Academy</li>
+    <li>Param Institute</li>
+    <li>Guru Nanak Coaching</li>
+  </ul>
+</div>
+
+<div class="popup" id="bioPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Vedpathshala</li>
+    <li>Bharatiya Sanskriti Classes</li>
+    <li>Acharya Coaching</li>
+    <li>Ramanujan Institute</li>
+  </ul>
+</div>
+
+<!-- 🟠 POPUPS FOR VERY LIGHT ORANGE -->
+<div class="popup" id="comPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>JMI Coaching</li>
+    <li>StudyIQ</li>
+    <li>Aligarh Coaching Centre</li>
+    <li>Unacademy Urdu</li>
+  </ul>
+</div>
+
+<div class="popup" id="ecoPopup">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
     <li>Punjabi Adhyayan</li>
@@ -195,20 +247,20 @@
   </ul>
 </div>
 
-  <style>
+<style>
 .R {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .B {
   --btn-bg: #b9fbc0;
   position: relative;
   display: inline-block;
-  padding: 12px 20px;
+  padding: 14px 24px;
   min-width: 120px;
   text-align: center;
   background: var(--btn-bg);
@@ -386,4 +438,3 @@ window.addEventListener('scroll', () => {
   }
 });
 </script>
-  
