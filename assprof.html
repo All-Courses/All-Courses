@@ -380,12 +380,11 @@ let activePopup = null;
 let activeButton = null;
 let scrollTimer = null;
 
-function positionPopup(button, popup) {
+function positionPopup(button, popup, scaleValue) {
   const rect = button.getBoundingClientRect();
 
   const prevDisplay = popup.style.display;
   const prevVisibility = popup.style.visibility;
-  const prevTransform = popup.style.transform;
 
   popup.style.visibility = "hidden";
   popup.style.display = "block";
@@ -413,12 +412,14 @@ function positionPopup(button, popup) {
   const aboveFits = aboveTop >= margin;
 
   let top;
-  let scale = 1;
+  let scale = scaleValue;
 
   if (belowFits) {
     top = belowTop;
+    scale = 1;
   } else if (aboveFits) {
     top = aboveTop;
+    scale = 1;
   } else {
     const maxHeight = vh - 2 * margin;
     const maxWidth = vw - 2 * margin;
@@ -444,9 +445,10 @@ function positionPopup(button, popup) {
   popup.style.left = left + "px";
   popup.style.top = top + "px";
   popup.style.transformOrigin = "top left";
-  popup.style.transform = "scale(" + scale + ")";
   popup.style.maxHeight = "";
   popup.style.overflow = "visible";
+
+  popup.dataset.scale = scale;
 }
 
 function togglePopup(button, popupId) {
@@ -460,9 +462,11 @@ function togglePopup(button, popupId) {
   document.querySelectorAll(".popup").forEach(p => p.classList.remove("active"));
   document.querySelectorAll(".B").forEach(b => b.classList.remove("active"));
 
-  positionPopup(button, popup);
+  positionPopup(button, popup, 1);
   popup.classList.add("active");
   button.classList.add("active");
+
+  popup.style.setProperty("--scale", popup.dataset.scale || 1);
 
   activePopup = popup;
   activeButton = button;
@@ -483,7 +487,7 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("resize", () => {
   if (!activePopup || !activeButton) return;
-  positionPopup(activeButton, activePopup);
+  positionPopup(activeButton, activePopup, activePopup.dataset.scale || 1);
 });
 </script>
 
