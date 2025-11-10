@@ -380,72 +380,111 @@ let activePopup = null;
 let activeButton = null;
 let scrollTimer = null;
 
-function togglePopup(button, popupId) {
-  const popup = document.getElementById(popupId);
+function positionPopup(button, popup) {
   const rect = button.getBoundingClientRect();
-  
+
+  const prevDisplay = popup.style.display;
+  const prevVisibility = popup.style.visibility;
+  const prevTransform = popup.style.transform;
+
   popup.style.visibility = "hidden";
   popup.style.display = "block";
-  const popupHeight = popup.offsetHeight;
-  const popupWidth = Math.max(popup.offsetWidth, 180);
-  popup.style.display = "";
-  popup.style.visibility = "";
+  popup.style.transform = "scale(1)";
+  popup.style.maxHeight = "";
+  popup.style.overflow = "visible";
 
-  const spaceBelow = window.innerHeight - rect.bottom;
-  const spaceAbove = rect.top;
-  let topPosition;
+  const naturalWidth = Math.max(popup.offsetWidth, 180);
+  const naturalHeight = popup.offsetHeight;
 
-  if (popupHeight + 10 <= spaceBelow) {
-    topPosition = rect.bottom + window.scrollY + 8;
-  } else if (popupHeight + 10 <= spaceAbove) {
-    topPosition = rect.top + window.scrollY - popupHeight - 8;
+  popup.style.display = prevDisplay || "";
+  popup.style.visibility = prevVisibility || "";
+
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const margin = 10;
+  const gap = 8;
+
+  let left = rect.left + (rect.width - naturalWidth) / 2;
+
+  const belowTop = rect.bottom + gap;
+  const belowFits = naturalHeight <= vh - belowTop - margin;
+
+  const aboveTop = rect.top - naturalHeight - gap;
+  const aboveFits = aboveTop >= margin;
+
+  let top;
+  let scale = 1;
+
+  if (belowFits) {
+    top = belowTop;
+  } else if (aboveFits) {
+    top = aboveTop;
   } else {
-    topPosition = Math.max(
-      10 + window.scrollY,
-      Math.min(
-        window.scrollY + window.innerHeight - popupHeight - 10,
-        rect.bottom + window.scrollY + 8
-      )
-    );
+    const maxHeight = vh - 2 * margin;
+    const maxWidth = vw - 2 * margin;
+    const sH = maxHeight / naturalHeight;
+    const sW = maxWidth / naturalWidth;
+    scale = Math.min(1, sH, sW);
+
+    const scaledW = naturalWidth * scale;
+    const scaledH = naturalHeight * scale;
+
+    const btnCx = rect.left + rect.width / 2;
+    const btnCy = rect.top + rect.height / 2;
+
+    left = btnCx - scaledW / 2;
+    top = btnCy - scaledH / 2;
+
+    left = Math.max(margin, Math.min(vw - margin - scaledW, left));
+    top = Math.max(margin, Math.min(vh - margin - scaledH, top));
   }
 
-  const leftPosition = Math.min(
-    window.innerWidth - popupWidth - 10,
-    Math.max(10, rect.left + rect.width / 2 - popupWidth / 2)
-  );
+  left = Math.max(margin, Math.min(vw - margin - naturalWidth, left));
 
-  popup.style.left = `${leftPosition}px`;
-  popup.style.top = `${topPosition}px`;
+  popup.style.left = left + "px";
+  popup.style.top = top + "px";
+  popup.style.transformOrigin = "top left";
+  popup.style.transform = "scale(" + scale + ")";
+  popup.style.maxHeight = "";
+  popup.style.overflow = "visible";
+}
 
-  if (popup.classList.contains('active')) {
+function togglePopup(button, popupId) {
+  const popup = document.getElementById(popupId);
+
+  if (popup.classList.contains("active")) {
     closePopup();
-  } else {
-    document.querySelectorAll('.popup').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.B').forEach(b => b.classList.remove('active'));
-    popup.classList.add('active');
-    button.classList.add('active');
-    activePopup = popup;
-    activeButton = button;
+    return;
   }
+
+  document.querySelectorAll(".popup").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".B").forEach(b => b.classList.remove("active"));
+
+  positionPopup(button, popup);
+  popup.classList.add("active");
+  button.classList.add("active");
+
+  activePopup = popup;
+  activeButton = button;
 }
 
 function closePopup() {
-  if (activePopup) {
-    activePopup.classList.remove('active');
-    activePopup = null;
-  }
-  if (activeButton) {
-    activeButton.classList.remove('active');
-    activeButton = null;
-  }
+  if (activePopup) activePopup.classList.remove("active");
+  if (activeButton) activeButton.classList.remove("active");
+  activePopup = null;
+  activeButton = null;
 }
 
-window.addEventListener('scroll', () => {
-  if (activePopup) {
-    if (scrollTimer) clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(closePopup, 3000);
-  }
+window.addEventListener("scroll", () => {
+  if (!activePopup) return;
+  if (scrollTimer) clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(closePopup, 3000);
+}, { passive: true });
+
+window.addEventListener("resize", () => {
+  if (!activePopup || !activeButton) return;
+  positionPopup(activeButton, activePopup);
 });
-    </script>
+</script>
 
 
