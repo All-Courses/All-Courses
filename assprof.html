@@ -380,11 +380,10 @@ let activePopup = null;
 let activeButton = null;
 let scrollTimer = null;
 
-function positionPopup(button, popup, scaleValue) {
-  const rect = button.getBoundingClientRect();
-
-  const prevDisplay = popup.style.display;
-  const prevVisibility = popup.style.visibility;
+function measurePopup(popup) {
+  const oldDisplay = popup.style.display;
+  const oldVisibility = popup.style.visibility;
+  const oldTransform = popup.style.transform;
 
   popup.style.visibility = "hidden";
   popup.style.display = "block";
@@ -392,63 +391,66 @@ function positionPopup(button, popup, scaleValue) {
   popup.style.maxHeight = "";
   popup.style.overflow = "visible";
 
-  const naturalWidth = Math.max(popup.offsetWidth, 180);
-  const naturalHeight = popup.offsetHeight;
+  const w = Math.max(popup.offsetWidth, 180);
+  const h = popup.offsetHeight;
 
-  popup.style.display = prevDisplay || "";
-  popup.style.visibility = prevVisibility || "";
+  popup.style.display = oldDisplay;
+  popup.style.visibility = oldVisibility;
+  popup.style.transform = oldTransform;
+
+  return { w, h };
+}
+
+function positionPopup(button, popup) {
+  const rect = button.getBoundingClientRect();
+  const { w, h } = measurePopup(popup);
 
   const vw = window.innerWidth;
   const vh = window.innerHeight;
   const margin = 10;
   const gap = 8;
 
-  let left = rect.left + (rect.width - naturalWidth) / 2;
+  let left = rect.left + (rect.width - w) / 2;
 
   const belowTop = rect.bottom + gap;
-  const belowFits = naturalHeight <= vh - belowTop - margin;
+  const belowFits = h <= vh - belowTop - margin;
 
-  const aboveTop = rect.top - naturalHeight - gap;
+  const aboveTop = rect.top - h - gap;
   const aboveFits = aboveTop >= margin;
 
   let top;
-  let scale = scaleValue;
+  let scale = 1;
 
   if (belowFits) {
     top = belowTop;
-    scale = 1;
   } else if (aboveFits) {
     top = aboveTop;
-    scale = 1;
   } else {
-    const maxHeight = vh - 2 * margin;
-    const maxWidth = vw - 2 * margin;
-    const sH = maxHeight / naturalHeight;
-    const sW = maxWidth / naturalWidth;
+    const maxH = vh - 2 * margin;
+    const maxW = vw - 2 * margin;
+
+    const sH = maxH / h;
+    const sW = maxW / w;
     scale = Math.min(1, sH, sW);
 
-    const scaledW = naturalWidth * scale;
-    const scaledH = naturalHeight * scale;
+    const sw = w * scale;
+    const sh = h * scale;
 
-    const btnCx = rect.left + rect.width / 2;
-    const btnCy = rect.top + rect.height / 2;
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
 
-    left = btnCx - scaledW / 2;
-    top = btnCy - scaledH / 2;
+    left = cx - sw / 2;
+    top = cy - sh / 2;
 
-    left = Math.max(margin, Math.min(vw - margin - scaledW, left));
-    top = Math.max(margin, Math.min(vh - margin - scaledH, top));
+    left = Math.max(margin, Math.min(vw - margin - sw, left));
+    top = Math.max(margin, Math.min(vh - margin - sh, top));
   }
 
-  left = Math.max(margin, Math.min(vw - margin - naturalWidth, left));
-
-  popup.style.left = left + "px";
-  popup.style.top = top + "px";
-  popup.style.transformOrigin = "top left";
-  popup.style.maxHeight = "";
-  popup.style.overflow = "visible";
+  left = Math.max(margin, Math.min(vw - margin - w, left));
 
   popup.dataset.scale = scale;
+  popup.dataset.left = left;
+  popup.dataset.top = top;
 }
 
 function togglePopup(button, popupId) {
@@ -462,19 +464,30 @@ function togglePopup(button, popupId) {
   document.querySelectorAll(".popup").forEach(p => p.classList.remove("active"));
   document.querySelectorAll(".B").forEach(b => b.classList.remove("active"));
 
-  positionPopup(button, popup, 1);
+  positionPopup(button, popup);
+
+  popup.style.left = popup.dataset.left + "px";
+  popup.style.top = popup.dataset.top + "px";
+  popup.style.transform = "scale(0.7)";
+
   popup.classList.add("active");
   button.classList.add("active");
 
-  popup.style.setProperty("--scale", popup.dataset.scale || 1);
+  requestAnimationFrame(() => {
+    popup.style.transform = "scale(" + popup.dataset.scale + ")";
+  });
 
   activePopup = popup;
   activeButton = button;
 }
 
 function closePopup() {
-  if (activePopup) activePopup.classList.remove("active");
+  if (!activePopup) return;
+
+  activePopup.style.transform = "scale(0.7)";
+  activePopup.classList.remove("active");
   if (activeButton) activeButton.classList.remove("active");
+
   activePopup = null;
   activeButton = null;
 }
@@ -487,7 +500,9 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("resize", () => {
   if (!activePopup || !activeButton) return;
-  positionPopup(activeButton, activePopup, activePopup.dataset.scale || 1);
+  positionPopup(activeButton, activePopup);
+  activePopup.style.left = activePopup.dataset.left + "px";
+  activePopup.style.top = activePopup.dataset.top + "px";
 });
 </script>
 
