@@ -161,6 +161,60 @@
 .B:hover {
   transform: scale(1.1); /* slight grow on hover */
 }
+
+.popup {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  padding: 20px 25px 15px 25px;
+  width: auto;
+  min-width: 160px;
+  max-width: 80%;
+  text-align: left;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.35s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.popup.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popup li {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 8px 0;
+  opacity: 1;
+  white-space: nowrap;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+  user-select: none;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.7); }
+}
 </style>
 
 <div class="button-row-blue">
@@ -795,62 +849,6 @@
 .fancy-button-gray:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-}
-</style>
-
-</style>
-.popup {
-  position: fixed;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(6px);
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-  padding: 20px 25px 15px 25px;
-  width: auto;
-  min-width: 160px;
-  max-width: 80%;
-  text-align: left;
-  opacity: 0;
-  transform: scale(0.7);
-  transition: all 0.35s ease;
-  z-index: 9999;
-  pointer-events: none;
-}
-
-.popup.active {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-  pointer-events: auto;
-}
-
-.popup ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.popup li {
-  font-size: 16px;
-  color: #000;
-  font-weight: bold;
-  margin: 8px 0;
-  opacity: 1;
-  white-space: nowrap;
-}
-
-.close {
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  font-size: 20px;
-  color: gray;
-  cursor: pointer;
-  user-select: none;
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(0.7); }
 }
 </style>
 
