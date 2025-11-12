@@ -90,14 +90,14 @@
     <li>StudyIQ</li>
   </ul>
 </div>
-  
+
 <div class="popup" id="psiPopup">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
-    <li>𝗡𝗢𝗥𝗖𝗘𝗧 𝗖𝗛𝗢</li>
-    <li>Adda247</li>
-    <li>CareerWill</li>
-    <li>Pariksha</li>
+    <li style="text-align:center; font-size:18px; font-weight:bold; color:#007bff;">TESTBOOK</li>
+    <li>Utkarsh Classes</li>
+    <li>Lucent Academy</li>
+    <li>StudyIQ</li>
   </ul>
 </div>
 
@@ -561,19 +561,59 @@
   transform: scale(1.1);
 }
 </style>
-<div class="button-2x2-row">
-  <div class="button-row-sub">
-    <a href="nursing.html" class="fancy-button-lightblue">Nursing</a>
-    <a href="banking.html" class="fancy-button-lightblue">Banking</a>
-  </div>
-  <div class="button-row-sub">
-    <a href="railway.html" class="fancy-button-lightblue">Railway</a>
-    <a href="defence.html" class="fancy-button-lightblue">Defence</a>
-  </div>
+
+<div class="R1">
+  <div class="B1" style="--btn-bg:#e6f7ff;" onclick="togglePopup(this, 'nursingPopup')">NURSING</div>
+  <div class="B1" style="--btn-bg:#e6f7ff;" onclick="togglePopup(this, 'bankPopup')">BANKING</div>
+</div>
+<div class="R1">
+  <div class="B1" style="--btn-bg:#e6f7ff;" onclick="togglePopup(this, 'defencePopup')">DEFECE</div>
+  <div class="B1" style="--btn-bg:#e6f7ff;" onclick="togglePopup(this, 'railwayPopup')">RAILWAY</div>
+</div>
+</div>
+
+<div class="popup" id="nursingpPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li style="text-align:center; font-size:18px; font-weight:bold; color:#007bff;">TESTBOOK</li>
+    <li>Utkarsh Classes</li>
+    <li>Lucent Academy</li>
+    <li>StudyIQ</li>
+  </ul>
+</div>
+
+<div class="popup" id="bankPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li style="text-align:center; font-size:18px; font-weight:bold; color:#007bff;">TESTBOOK</li>
+    <li>Utkarsh Classes</li>
+    <li>Lucent Academy</li>
+    <li>StudyIQ</li>
+  </ul>
+</div>
+
+<div class="popup" id="defencePopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li style="text-align:center; font-size:18px; font-weight:bold; color:#007bff;">TESTBOOK</li>
+    <li>Utkarsh Classes</li>
+    <li>Lucent Academy</li>
+    <li>StudyIQ</li>
+  </ul>
+</div>
+
+<div class="popup" id="railwayPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li style="text-align:center; font-size:18px; font-weight:bold; color:#007bff;">TESTBOOK</li>
+    <li>Utkarsh Classes</li>
+    <li>Lucent Academy</li>
+    <li>StudyIQ</li>
+  </ul>
 </div>
 
 <style>
-.button-2x2-row {
+.R1 {
   display: flex;
   flex-direction: column;
   gap: 20px; /* gap between upper and lower row */
@@ -581,7 +621,7 @@
   margin-top: 30px;
 }
 
-.button-row-sub {
+.R1 {
   display: flex;
   gap: 15px; /* space between buttons */
   justify-content: center;
@@ -589,7 +629,7 @@
 }
 
 /* Button Styles */
-.fancy-button-lightblue {
+.B1 {
   position: relative;
   display: inline-block;
   padding: 10px 18px; /* short width */
@@ -608,7 +648,7 @@
 }
 
 /* Shine effect */
-.fancy-button-lightblue::before {
+.B1::before {
   content: '';
   position: absolute;
   top: 0;
@@ -638,10 +678,74 @@
   100% { left: 125%; }
 }
 
-.fancy-button-lightblue:hover {
+.B1:hover {
   transform: scale(1.05);
 }
+
+.popup {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  padding: 20px 25px 15px 25px;
+  width: auto;
+  min-width: 160px;
+  max-width: 80%;
+  text-align: left;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.35s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.popup.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+  
+.popup li {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 8px 0;
+  opacity: 1;
+  white-space: nowrap;
+}
+
+.popup-heading {
+  font-size: 18px;          
+  font-weight: 700;          
+  color: #333;               
+  margin-bottom: 12px;       
+  line-height: 1.4;          
+  text-align: left;          
+}
+  
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+  user-select: none;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.7); }
+}
 </style>
+
 <div class="button-row-orange">
   <a href="gate.html" class="fancy-button-orange">Gate Esc</a>
   <a href="aeje.html" class="fancy-button-orange">AE JE</a>
@@ -990,5 +1094,3 @@ window.addEventListener("resize", () => {
   else activePopup.style.transform = "scale(" + s + ")";
 });
 </script>
-
-
