@@ -746,13 +746,33 @@
 }
 </style>
 
-<div class="button-row-orange">
-  <a href="gate.html" class="fancy-button-orange">Gate Esc</a>
-  <a href="aeje.html" class="fancy-button-orange">AE JE</a>
+<div class="R3">
+  <div class="B3" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'gatePopup')">GATE</div>
+  <div class="B3" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'aejePopup')">AE JE</div>
+</div>
+
+<div class="popup" id="gatePopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li style="text-align:center; font-size:18px; font-weight:bold; color:#007bff;">GATE</li>
+    <li>Utkarsh Classes</li>
+    <li>Lucent Academy</li>
+    <li>StudyIQ</li>
+  </ul>
+</div
+
+<div class="popup" id="aejePopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li style="text-align:center; font-size:18px; font-weight:bold; color:#007bff;">AE JE</li>
+    <li>Utkarsh Classes</li>
+    <li>Lucent Academy</li>
+    <li>StudyIQ</li>
+  </ul>
 </div>
 
 <style>
-.button-row-orange {
+.R3 {
   display: flex;
   gap: 15px; /* space between buttons */
   justify-content: center;
@@ -761,7 +781,7 @@
 }
 
 /* Button Styles */
-.fancy-button-orange {
+.B3 {
   position: relative;
   display: inline-block;
   padding: 10px 18px; /* short width */
@@ -779,7 +799,7 @@
 }
 
 /* Shine effect */
-.fancy-button-orange::before {
+.B3::before {
   content: '';
   position: absolute;
   top: 0;
@@ -809,10 +829,74 @@
   100% { left: 125%; }
 }
 
-.fancy-button-orange:hover {
+.B3:hover {
   transform: scale(1.1);
 }
+
+.popup {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  padding: 20px 25px 15px 25px;
+  width: auto;
+  min-width: 160px;
+  max-width: 80%;
+  text-align: left;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.35s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.popup.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+  
+.popup li {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 8px 0;
+  opacity: 1;
+  white-space: nowrap;
+}
+
+.popup-heading {
+  font-size: 18px;          
+  font-weight: 700;          
+  color: #333;               
+  margin-bottom: 12px;       
+  line-height: 1.4;          
+  text-align: left;          
+}
+  
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+  user-select: none;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.7); }
+}
 </style>
+
 <div class="button-row-silver">
   <a href="school.html" class="fancy-button-silver">School</a>
   <a href="subvise.html" class="fancy-button-silver">Sub Vise</a>
