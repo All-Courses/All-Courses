@@ -786,4 +786,194 @@
 <div class="popup" id="aejePopup">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
-    <li style="text-align:center; font-siz
+    <li style="text-align:center; font-size:18px; font-weight:bold; color:#007bff;">AE JE</li>
+    <li>Utkarsh Classes</li>
+    <li>Lucent Academy</li>
+    <li>StudyIQ</li>
+  </ul>
+</div>
+
+<style>
+.R3 {
+  display: flex;
+  gap: 15px; /* space between buttons */
+  justify-content: center;
+  flex-wrap: wrap; /* ensures it fits on small screens */
+  margin-top: 21px;
+}
+
+/* Button Styles */
+.B3 {
+  position: relative;
+  display: inline-block;
+  padding: 10px 18px; /* short width */
+  min-width: 90px;
+  text-align: center;
+  background: #ffe5b4; /* light peach */
+  color: #000; /* black font */
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 25px; /* round corners */
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: bobbing 2s infinite alternate;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Shine effect */
+.B3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 2s infinite;
+}
+
+/* Bobbing animation */
+@keyframes bobbing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* Shine animation */
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+.B3:hover {
+  transform: scale(1.1);
+}
+</style>
+
+<!-- ==================== JS – POPUP + ACTIVE BUTTON LOGIC ==================== -->
+<script>
+  // Track the currently open popup and active button
+  let currentPopupId = null;
+  let currentActiveButton = null;
+
+  // Position popup near the button
+  function positionPopupNearButton(popupEl, buttonEl) {
+    if (!popupEl || !buttonEl) return;
+
+    const btnRect = buttonEl.getBoundingClientRect();
+    const popupRect = popupEl.getBoundingClientRect();
+    const spacing = 8;
+
+    let top = window.scrollY + btnRect.bottom + spacing;
+    let left = window.scrollX + btnRect.left;
+
+    const maxLeft = window.innerWidth - popupRect.width - 12;
+    if (left > maxLeft) left = Math.max(12, maxLeft);
+
+    if (btnRect.bottom + popupRect.height + spacing > window.innerHeight) {
+      top = window.scrollY + btnRect.top - popupRect.height - spacing;
+    }
+
+    popupEl.style.left = left + "px";
+    popupEl.style.top = top + "px";
+  }
+
+  function togglePopup(buttonEl, popupId) {
+    const popupEl = document.getElementById(popupId);
+    if (!popupEl) return;
+
+    // If clicking same popup, just close
+    if (currentPopupId === popupId) {
+      closePopup();
+      return;
+    }
+
+    // Close any already open popup
+    closePopup();
+
+    // Open new popup
+    popupEl.classList.add("active");
+    positionPopupNearButton(popupEl, buttonEl);
+
+    // Mark button as active (darken)
+    if (buttonEl) {
+      buttonEl.classList.add("active-btn");
+      currentActiveButton = buttonEl;
+    }
+
+    currentPopupId = popupId;
+  }
+
+  function closePopup() {
+    if (currentPopupId) {
+      const prev = document.getElementById(currentPopupId);
+      if (prev) prev.classList.remove("active");
+      currentPopupId = null;
+    }
+    if (currentActiveButton) {
+      currentActiveButton.classList.remove("active-btn");
+      currentActiveButton = null;
+    }
+  }
+
+  // Special for Disclaimer (opens fixed in top-right, no active button)
+  function toggleDisclaimer() {
+    const popup = document.getElementById("disclaimerPopup");
+    if (!popup) return;
+
+    if (popup.classList.contains("active")) {
+      popup.classList.remove("active");
+      currentPopupId = null;
+      return;
+    }
+    // Close others
+    closePopup();
+    popup.classList.add("active");
+    currentPopupId = "disclaimerPopup";
+
+    // Position top-right of viewport
+    popup.style.top = "65px";
+    popup.style.right = "15px";
+    popup.style.left = "auto";
+  }
+
+  // Close popup when clicking outside
+  document.addEventListener("click", function (e) {
+    const insidePopup = e.target.closest(".popup");
+    const isPopupButton = e.target.closest(".B, .B1, .B3, .B5");
+    const isDisclaimerBtn = e.target.closest(".disclaimer-btn");
+
+    if (!insidePopup && !isPopupButton && !isDisclaimerBtn) {
+      closePopup();
+      const disclaimer = document.getElementById("disclaimerPopup");
+      if (disclaimer) disclaimer.classList.remove("active");
+    }
+  });
+
+  // Close on ESC
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      const disclaimer = document.getElementById("disclaimerPopup");
+      if (disclaimer) disclaimer.classList.remove("active");
+      closePopup();
+    }
+  });
+
+  // Keep popup positioned on resize
+  window.addEventListener("resize", function () {
+    if (currentPopupId && currentActiveButton && currentPopupId !== "disclaimerPopup") {
+      const popupEl = document.getElementById(currentPopupId);
+      if (popupEl) positionPopupNearButton(popupEl, currentActiveButton);
+    }
+  });
+</script>
+
+</body>
+</html>
