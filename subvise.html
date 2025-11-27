@@ -70,8 +70,322 @@
   <!-- Title with animated small books on sides -->
   <div style="display: flex; justify-content: center; align-items: center; flex-wrap: nowrap; white-space: nowrap; position: relative; z-index: 2; gap: 15px;">
     <span class="book-icon" style="animation-delay: 0s;">📖</span>
-    <span class="title">Subjects 🗃️</span>
+    <span class="title">Subjects🗃️</span>
     <span class="book-icon" style="animation-delay: 0.5s;">📖</span>
   </div>
 
 </div>
+
+<div class="R">
+  <div class="B" style="--btn-bg:#FFEE8C;" onclick="togglePopup(this, 'gkPopup')">RAJ GK BATCH</div>
+</div>
+    <!-- 🔴 GK / SST / SCIENCE (Light Red) -->
+<div class="R">
+  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'hisPopup')">HISTORY</div>
+  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'geoPopup')">GEOGRAPHY</div>
+</div>
+<div class="R">
+  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'polPopup')">POLITY</div>
+</div>
+
+<!-- 🔵 HINDI / ENGLISH / MATHS (Light Blue) -->
+<div class="R">
+  <div class="B" style="--btn-bg:#E3F2FD;" onclick="togglePopup(this, 'hindiPopup')">HINDI</div>
+  <div class="B" style="--btn-bg:#E3F2FD;" onclick="togglePopup(this, 'englishPopup')">ENGLISH</div>
+</div>
+<div class="R">
+  <div class="B" style="--btn-bg:#E3F2FD;" onclick="togglePopup(this, 'mathsPopup')">MATHS</div>
+</div>
+
+<div class="R">
+  <div class="B" style="--btn-bg:#84eab3;" onclick="togglePopup(this, 'physicsPopup')">PHYSICS</div>
+  <div class="B" style="--btn-bg:#84eab3;" onclick="togglePopup(this, 'chemPopup')">CHEMISTRY</div>
+</div>
+<div class="R">
+  <div class="B" style="--btn-bg:#84eab3;" onclick="togglePopup(this, 'bioPopup')">BIOLOGY</div>
+</div>
+
+<!-- 🟠 URDU / PUNJABI / SANSKRIT (Very Light Orange) -->
+<div class="R">
+  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'comPopup')">REOSONING</div>
+  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'ecoPopup')">COMPUTER</div>
+</div>
+<div class="R">
+  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'sanskritPopup')">ART & CULTURE</div>
+</div>
+
+<div class="popup" id="gkPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="hisPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="geoPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="polPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="hindiPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="englishPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="mathsPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="bioPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="chemPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="physicsPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="ecoPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="comPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+<div class="popup" id="sanskritPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>list will Update Soon ⌛</li>
+  </ul>
+</div>
+
+<style>
+.R {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  margin-bottom: 30px;  
+}
+
+.R:last-of-type {
+  margin-bottom: 100px;
+}
+  
+.B {
+  --btn-bg: #b9fbc0;
+  position: relative;
+  display: inline-block;
+  padding: 13px 22px;
+  min-width: 105px;
+  text-align: center;
+  background: var(--btn-bg);
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: bobbing 2s infinite alternate;
+  font-size: 15px;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.B:hover {
+  transform: scale(1.1);
+}
+
+.B.active {
+  background-color: color-mix(in srgb, var(--btn-bg) 85%, black);
+}
+
+.B::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 2s infinite;
+}
+
+@keyframes bobbing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+.popup {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  padding: 20px 25px 15px 25px;
+  width: auto;
+  min-width: 160px;
+  max-width: 80%;
+  text-align: left;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.35s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.popup.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popup li {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 8px 0;
+  opacity: 1;
+  white-space: nowrap;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+  user-select: none;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.7); }
+}
+</style>
+
+<script>
+let activePopup = null;
+let activeButton = null;
+let scrollTimer = null;
+
+function togglePopup(button, popupId) {
+  const popup = document.getElementById(popupId);
+  const rect = button.getBoundingClientRect();
+  
+  popup.style.visibility = "hidden";
+  popup.style.display = "block";
+  const popupHeight = popup.offsetHeight;
+  const popupWidth = Math.max(popup.offsetWidth, 180);
+  popup.style.display = "";
+  popup.style.visibility = "";
+
+  const spaceBelow = window.innerHeight - rect.bottom;
+  const spaceAbove = rect.top;
+  let topPosition;
+
+  if (popupHeight + 10 <= spaceBelow) {
+    topPosition = rect.bottom + window.scrollY + 8;
+  } else if (popupHeight + 10 <= spaceAbove) {
+    topPosition = rect.top + window.scrollY - popupHeight - 8;
+  } else {
+    topPosition = Math.max(
+      10 + window.scrollY,
+      Math.min(
+        window.scrollY + window.innerHeight - popupHeight - 10,
+        rect.bottom + window.scrollY + 8
+      )
+    );
+  }
+
+  const leftPosition = Math.min(
+    window.innerWidth - popupWidth - 10,
+    Math.max(10, rect.left + rect.width / 2 - popupWidth / 2)
+  );
+
+  popup.style.left = `${leftPosition}px`;
+  popup.style.top = `${topPosition}px`;
+
+  if (popup.classList.contains('active')) {
+    closePopup();
+  } else {
+    document.querySelectorAll('.popup').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.B').forEach(b => b.classList.remove('active'));
+    popup.classList.add('active');
+    button.classList.add('active');
+    activePopup = popup;
+    activeButton = button;
+  }
+}
+
+function closePopup() {
+  if (activePopup) {
+    activePopup.classList.remove('active');
+    activePopup = null;
+  }
+  if (activeButton) {
+    activeButton.classList.remove('active');
+    activeButton = null;
+  }
+}
+
+window.addEventListener('scroll', () => {
+  if (activePopup) {
+    if (scrollTimer) clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(closePopup, 3000);
+  }
+});
+    </script>
