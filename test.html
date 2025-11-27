@@ -124,6 +124,12 @@
   animation: bobbing 2s infinite alternate;
 }
 
+.B.active-btn {
+  filter: brightness(0.7);
+  transform: scale(1.05);
+  animation: none;
+}
+  
 /* Shine effect */
 .B::before {
   content: '';
@@ -1218,7 +1224,6 @@
   box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 </style>
-
 <script>
 let activePopup = null;
 let activeButton = null;
@@ -1251,7 +1256,7 @@ function positionPopup(button, popup) {
 
   let left = rect.left + (rect.width - naturalWidth) / 2;
 
-const belowTop = rect.bottom + gap;
+  const belowTop = rect.bottom + gap;
   const belowFits = naturalHeight <= (vh - belowTop - margin);
 
   const aboveTop = rect.top - naturalHeight - gap;
@@ -1304,7 +1309,9 @@ function togglePopup(button, popupId) {
     p.classList.remove("active");
     p.style.transform = "";
   });
-  document.querySelectorAll(".B").forEach(b => b.classList.remove("active"));
+  
+  // UPDATED: Remove active-btn from all button types
+  document.querySelectorAll(".B, .B1, .B3, .B4, .B5").forEach(b => b.classList.remove("active-btn"));
 
   const scale = positionPopup(button, popup);
 
@@ -1321,7 +1328,7 @@ function togglePopup(button, popupId) {
   }
 
   popup.classList.add("active");
-  button.classList.add("active");
+  button.classList.add("active-btn");  // UPDATED: Add active-btn class
 
   activePopup = popup;
   activeButton = button;
@@ -1333,7 +1340,7 @@ function closePopup() {
     forceReflow(activePopup);
     activePopup.classList.remove("active");
   }
-  if (activeButton) activeButton.classList.remove("active");
+  if (activeButton) activeButton.classList.remove("active-btn");  // UPDATED: Remove active-btn
   activePopup = null;
   activeButton = null;
 }
