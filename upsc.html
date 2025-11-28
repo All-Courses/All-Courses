@@ -75,3 +75,245 @@
   </div>
 
 </div>
+
+<div class="title">Optional Subjects 📕</div>
+
+<div class="R">
+  <div class="B" onclick="togglePopup(this, 'P1')">HISTORY</div>
+  <div class="B" onclick="togglePopup(this, 'P2')">PSIR</div>
+</div>
+
+<div class="R">
+  <div class="B" onclick="togglePopup(this, 'P4')">GEOGRAPHY</div>
+  <div class="B" onclick="togglePopup(this, 'P5')">PUB AD</div>
+</div>
+
+<div class="R">
+  <div class="B" onclick="togglePopup(this, 'P7')">SOCIOLOGY</div>
+  <div class="B" onclick="togglePopup(this, 'P8')">PHILOSOPHY</div>
+</div>
+
+<div class="R">
+  <div class="B" onclick="togglePopup(this, 'P6')">ANTHROPOLOGY</div>
+  <div class="B" onclick="togglePopup(this, 'P3')">HINDI LITERATURE</div>
+</div>
+
+<div class="title">Foundation Batch 📚</div>
+
+<div class="R1">
+  <div class="B1 redBtn" onclick="togglePopup(this, 'PGS1')">UPSC GS हिन्दी मीडियम</div>
+</div>
+
+<div class="R1">
+  <div class="B1 greenBtn" onclick="togglePopup(this, 'PGS2')">UPSC GS English Medium</div>
+</div>
+
+<!-- POPUPS FOR ALL BUTTONS -->
+<div class="popup" id="P1"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="P2"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="P3"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="P4"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="P5"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="P6"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="P7"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="P8"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="PGS1"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="PGS2"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+
+
+<style>
+/* Titles */
+.title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #555;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-shadow: 0px 4px 8px rgba(0,0,0,0.25);
+}
+
+/* ROWS */
+.R, .R1 {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+/* BLUE BUTTONS */
+.B {
+  --btn-bg: #cfeeff;
+  position: centre;
+  padding: 12px 22px;
+  min-width: 100px;
+  background: var(--btn-bg);
+  color: #033a52;
+  font-weight: bold;
+  border-radius: 25px;
+  border: 2px solid #9ec9e0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  animation: bobbing 2s infinite alternate;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.B:hover { transform: scale(1.1); }
+
+.B.active {
+  background-color: color-mix(in srgb, var(--btn-bg) 80%, black);
+}
+
+/* FOUNDATION BATCH BUTTONS */
+.B1 {
+  --btn-bg: #b9fbc0;
+  position: Centre;
+  padding: 15px 29px;
+  min-width: 260px;
+  background: var(--btn-bg);
+  color: #333;
+  font-weight: bold;
+  border-radius: 30px;
+  border: 2px solid rgba(0,0,0,0.25);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  animation: bobbing 2s infinite alternate;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;  
+}
+
+.B1:hover { transform: scale(1.08); }
+
+.B1.active {
+  background-color: color-mix(in srgb, var(--btn-bg) 80%, black);
+}
+
+/* Custom colors */
+.redBtn { --btn-bg:#ffdede; border-color:#e0a5a5; }
+.greenBtn { --btn-bg:#daffda; border-color:#9ed49e; }
+
+/* Shine effect */
+.B::before, .B1::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  animation: shine 2s infinite;
+}
+
+@keyframes bobbing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* POPUPS */
+.popup {
+  position: fixed;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+  transition: 0.35s;
+  z-index: 99999;
+}
+
+.popup.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.popup ul { margin: 0; padding: 0; list-style: none; }
+.popup li { font-weight: bold; font-size: 16px; }
+
+/* CLOSE BUTTON */
+.close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  color: gray;
+}
+</style>
+
+
+<script>
+let activePopup = null;
+let activeButton = null;
+let scrollTimer = null;
+
+function togglePopup(button, popupId) {
+  const popup = document.getElementById(popupId);
+  const rect = button.getBoundingClientRect();
+
+  popup.style.visibility = "hidden";
+  popup.style.display = "block";
+  const popupHeight = popup.offsetHeight;
+  const popupWidth = popup.offsetWidth;
+  popup.style.display = "";
+  popup.style.visibility = "";
+
+  const below = window.innerHeight - rect.bottom;
+  let top = rect.bottom + window.scrollY + 8;
+  if (popupHeight + 10 > below) {
+    top = rect.top + window.scrollY - popupHeight - 8;
+  }
+
+  let left = rect.left + rect.width/2 - popupWidth/2;
+  left = Math.max(10, Math.min(left, window.innerWidth - popupWidth - 10));
+
+  popup.style.top = top + "px";
+  popup.style.left = left + "px";
+
+  if (popup.classList.contains("active")) {
+    closePopup();
+  } else {
+    document.querySelectorAll('.popup').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.B, .B1').forEach(b => b.classList.remove('active'));
+
+    popup.classList.add('active');
+    button.classList.add('active');
+
+    activePopup = popup;
+    activeButton = button;
+  }
+}
+
+function closePopup() {
+  if (activePopup) activePopup.classList.remove("active");
+  if (activeButton) activeButton.classList.remove("active");
+  activePopup = null;
+  activeButton = null;
+}
+
+window.addEventListener("scroll", () => {
+  if (activePopup) {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(closePopup, 2000);
+  }
+});
+</script>
+
