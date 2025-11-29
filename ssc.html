@@ -108,17 +108,60 @@
 </div>
 
 <!-- POPUPS FOR ALL BUTTONS -->
-<div class="popup" id="P1"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P2"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P3"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P4"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P5"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P6"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P7"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P8"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="PGS1"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="PGS2"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
+<div class="popup" id="eng">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Rani Mam</li>
+    <li>Neetu Mam</li>
+    <li>Gopal Verma</li>
+    <li>Aman Vashisht</li>
+  </ul>
+</div>
 
+<div class="popup" id="hindi">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jitendra Soni</li>
+    <li>Naveen Sharma</li>
+  </ul>
+</div>
+
+<div class="popup" id="math">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Pawan Rao</li>
+    <li>Aditya Ranjan</li>
+    <li>Gagan Pratap</li>
+    <li>Abhinay Sharma</li>
+  </ul>
+</div>
+
+<div class="popup" id="Reas">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Piyush Sir</li>
+    <li>Atul Awasthi</li>
+    <li>Rg Vikaramjeet</li>
+  </ul>
+</div>
+
+<div class="popup" id="gk">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>GS Guru</li>
+    <li>Parmar Sir</li>
+    <li>Gyan Bindu</li>
+    <li>Gk Crazy Tricks</li>
+  </ul>
+</div>
+
+<div class="popup" id="comp">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Gourav Garg</li>
+    <li>Radhika Mam</li>
+  </ul>
+</div>
 
 <style>
 html,body{overflow-x:hidden;}
@@ -215,38 +258,58 @@ html,body{overflow-x:hidden;}
   100% { left: 125%; }
 }
 
-/* POPUPS */
 .popup {
   position: fixed;
-  background: rgba(255,255,255,0.75);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(6px);
   border-radius: 16px;
-  padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  padding: 20px 25px 15px 25px;
+  width: auto;
+  min-width: 160px;
+  max-width: 80%;
+  text-align: left;
   opacity: 0;
   transform: scale(0.7);
+  transition: all 0.35s ease;
+  z-index: 9999;
   pointer-events: none;
-  transition: 0.35s;
-  z-index: 99999;
 }
 
 .popup.active {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) translateY(0);
   pointer-events: auto;
 }
 
-.popup ul { margin: 0; padding: 0; list-style: none; }
-.popup li { font-weight: bold; font-size: 16px; }
+.popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-/* CLOSE BUTTON */
+.popup li {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 8px 0;
+  opacity: 1;
+  white-space: nowrap;
+}
+
 .close {
   position: absolute;
-  right: 10px;
   top: 8px;
+  right: 10px;
   font-size: 20px;
-  cursor: pointer;
   color: gray;
+  cursor: pointer;
+  user-select: none;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.7); }
 }
 </style>
 
