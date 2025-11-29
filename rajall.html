@@ -104,27 +104,27 @@
 
 <!-- 🟠 URDU / PUNJABI / SANSKRIT (Very Light Orange) -->
 <div class="R">
-  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'comPopup')">AO AAO</div>
-  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'ecoPopup')">JET LSA</div>
+  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'ao')">AO AAO</div>
+  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'jet')">JET LSA</div>
 </div>
 <div class="R">
-  <div class="B" style="--btn-bg:#E8E9EB;" onclick="togglePopup(this, 'csPopup')">कृषि पर्यवेक्षक</div>
-</div>
-
-<div class="R">
-  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'socioPopup')">RJS</div>
-  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'envPopup')">FSO</div>
-</div>
-<div class="R">
-  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'homesciPopup')">BSTC</div>
+  <div class="B" style="--btn-bg:#E8E9EB;" onclick="togglePopup(this, 'agri')">कृषि पर्यवेक्षक</div>
 </div>
 
 <div class="R">
-  <div class="B" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'lawPopup')">Vdo पटवार</div>
-  <div class="B" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'managPopup')">वनपाल</div>
+  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'rjs')">RJS</div>
+  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'fso')">FSO</div>
 </div>
 <div class="R">
-  <div class="B" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'pePopup')">Raj Police</div>
+  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'bstc')">BSTC</div>
+</div>
+
+<div class="R">
+  <div class="B" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'vdo')">Vdo पटवार</div>
+  <div class="B" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'vanpal')">वनपाल</div>
+</div>
+<div class="R">
+  <div class="B" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'police')">Raj Police</div>
 </div>
 
 <div class="popup" id="hc4">
@@ -238,70 +238,79 @@
   </ul>
 </div>
 
+<div class="popup" id="ao">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Utkarsh</li>
+    <li>Royal Institute</li>
+  </ul>
+</div>
 
-<div class="popup" id="ecoPopup">
+<div class="popup" id="jet">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
-    <li>Jrf Adda</li>
-    <li>E Zenith 🔥</li>
+    <li>Utkarsh</li>
+    <li>Royal Institute</li>
+    <li>Pashu Arogyam</li>
+  </ul>
+</div>
+
+<div class="popup" id="agri">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Utkarsh</li>
+    <li>Royal Institute</li>
+  </ul>
+</div>
+
+<div class="popup" id="rjs">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Utkarsh</li>
     <li>Physics Wallah</li>
   </ul>
 </div>
-<div class="popup" id="comPopup">
+
+<div class="popup" id="fso">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
-    <li>Jrf Adda</li>
-    <li>E Zenith 🔥</li>
-    <li>Physics Wallah</li>
+    <li>Utkarsh</li>
+    <li>SWA Education</li>
   </ul>
 </div>
-<div class="popup" id="csPopup">
+
+<div class="popup" id="bstc">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
-    <li>Jrf Adda</li>
-    <li>Physics Wallah</li>
+    <li>Utkarsh</li>
+    <li>Lakshya</li>
   </ul>
 </div>
-<div class="popup" id="socioPopup">
+
+<div class="popup" id="vdo">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
-    <li>Jrf Adda</li>
-    <li>Physics Wallah</li>
+    <li>Kalam</li>
+    <li>Utkarsh</li>
+    <li>Booster</li>
+    <li>Quality Ed</li>
   </ul>
 </div>
-<div class="popup" id="envPopup">
+
+<div class="popup" id="vanpal">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
-    <li>Jrf Adda</li>
-    <li>Physics Wallah</li>
+    <li>Utkarsh</li>
   </ul>
 </div>
-<div class="popup" id="homesciPopup">
+
+<div class="popup" id="police">
   <span class="close" onclick="closePopup()">×</span>
   <ul>
-    <li>Jrf Adda</li>
-  </ul>
-</div>
-<div class="popup" id="lawPopup">
-  <span class="close" onclick="closePopup()">×</span>
-  <ul>
-    <li>Jrf Adda</li>
-    <li>Physics Wallah</li>
-  </ul>
-</div>
-<div class="popup" id="managPopup">
-  <span class="close" onclick="closePopup()">×</span>
-  <ul>
-    <li>Jrf Adda</li>
-    <li>Physics Wallah</li>
-  </ul>
-</div>
-<div class="popup" id="pePopup">
-  <span class="close" onclick="closePopup()">×</span>
-  <ul>
-    <li>Jrf Adda</li>
-    <li>Physics Wallah</li>
-    <li>Schlolor Mantra</li>
+    <li>RWA</li>
+    <li>Kalam</li>
+    <li>Utkarsh</li>
+    <li>Lakshya</li>
   </ul>
 </div>
 
