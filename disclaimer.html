@@ -21,15 +21,25 @@
   .small{font-size:13px;color:#666;margin-top:8px}
 
   /* CONTACT BUTTON */
-  .contact-btn{
-    position:fixed;left:50%;bottom:18px;
+  ..contact-btn{
+    position:fixed;
+    left:50%;
+    bottom:18px;
     transform:translateX(-50%);
-    background:#007bff;color:#fff;border:none;
-    padding:10px 18px;border-radius:30px;font-weight:600;
-    cursor:pointer;text-decoration:none;
-    box-shadow:0 6px 14px rgba(3,102,214,0.18);
-  }
-  .contact-btn:active{transform:translateX(-50%) translateY(1px);}
+    background:rgba(240,240,240,0.7); /* Light-gray, semi-transparent */
+    color:#555;                       /* Gray text */
+    border:none;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:none;
+    box-shadow:0 6px 14px rgba(0,0,0,0.12);
+}
+
+.contact-btn:active{
+    transform:translateX(-50%) translateY(1px);
+}
 </style>
 </head>
 
