@@ -76,250 +76,464 @@
 
 </div>
 
-<!-- BUTTONS GROUP – 1 (Light Red) -->
+</div>
+    <!-- 🔴 GK / SST / SCIENCE (Light Red) -->
 <div class="R">
-  <div class="B" style="--btn-bg:#FFD7D7;" onclick="togglePopup(this, 'P1')">High Court ग्रेड 4</div>
-  <div class="B" style="--btn-bg:#FFD7D7;" onclick="togglePopup(this, 'P2')">High Court LDC</div>
+  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'hisPopup')">High Court ग्रेड 4</div>
+  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'geoPopup')">High Court LDC</div>
+</div>
+<div class="R">
+  <div class="B" style="--btn-bg:#ffadad;" onclick="togglePopup(this, 'polPopup')">RSSB LDC</div>
+</div>
+
+<!-- 🔵 HINDI / ENGLISH / MATHS (Light Blue) -->
+<div class="R">
+  <div class="B" style="--btn-bg:#E3F2FD;" onclick="togglePopup(this, 'hindiPopup')">LAB ASSISTANT</div>
+  <div class="B" style="--btn-bg:#E3F2FD;" onclick="togglePopup(this, 'englishPopup')">LIBRARIAN</div>
+</div>
+<div class="R">
+  <div class="B" style="--btn-bg:#E3F2FD;" onclick="togglePopup(this, 'mathsPopup')">कंप्यूटर अनुदेशक</div>
 </div>
 
 <div class="R">
-  <div class="B" style="--btn-bg:#FFD7D7;" onclick="togglePopup(this, 'P3')">RSSB LDC</div>
+  <div class="B" style="--btn-bg:#84eab3;" onclick="togglePopup(this, 'physicsPopup')">EO RO</div>
+  <div class="B" style="--btn-bg:#84eab3;" onclick="togglePopup(this, 'chemPopup')">SO ASO</div>
+</div>
+<div class="R">
+  <div class="B" style="--btn-bg:#84eab3;" onclick="togglePopup(this, 'bioPopup')">CET</div>
 </div>
 
-
-
-<!-- BUTTONS GROUP – 2 (Light Yellow) -->
+<!-- 🟠 URDU / PUNJABI / SANSKRIT (Very Light Orange) -->
 <div class="R">
-  <div class="B" style="--btn-bg:#FFF5C4;" onclick="togglePopup(this, 'P4')">EO RO</div>
-  <div class="B" style="--btn-bg:#FFF5C4;" onclick="togglePopup(this, 'P5')">SO ASO</div>
+  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'comPopup')">AO AAO</div>
+  <div class="B" style="--btn-bg:#CBCBCB;" onclick="togglePopup(this, 'ecoPopup')">JET LSA</div>
 </div>
-
 <div class="R">
-  <div class="B" style="--btn-bg:#FFF5C4;" onclick="togglePopup(this, 'P6')">CET</div>
-</div>
-
-
-
-<!-- BUTTONS GROUP – 3 (Light Blue) -->
-<div class="R">
-  <div class="B" style="--btn-bg:#D7F0FF;" onclick="togglePopup(this, 'P7')">LAB ASSISTANT</div>
-  <div class="B" style="--btn-bg:#D7F0FF;" onclick="togglePopup(this, 'P8')">LIBRARIAN</div>
+  <div class="B" style="--btn-bg:#E8E9EB;" onclick="togglePopup(this, 'csPopup')">कृषि पर्यवेक्षक</div>
 </div>
 
 <div class="R">
-  <div class="B" style="--btn-bg:#D7F0FF;" onclick="togglePopup(this, 'P9')">कंप्यूटर अनुदेशक</div>
+  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'socioPopup')">RJS</div>
+  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'envPopup')">FSO</div>
 </div>
-
-
-
-<!-- BUTTONS GROUP – 4 (Light Green) -->
 <div class="R">
-  <div class="B" style="--btn-bg:#D9FFD9;" onclick="togglePopup(this, 'P10')">AO AAO</div>
-  <div class="B" style="--btn-bg:#D9FFD9;" onclick="togglePopup(this, 'P11')">JET LSA</div>
+  <div class="B" style="--btn-bg:#CEC2EB;" onclick="togglePopup(this, 'homesciPopup')">BSTC</div>
 </div>
 
 <div class="R">
-  <div class="B" style="--btn-bg:#D9FFD9;" onclick="togglePopup(this, 'P12')">कृषि पर्यवेक्षक</div>
-</div>
-
-
-
-<!-- BUTTONS GROUP – 5 (Light Purple) -->
+  <div class="B" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'lawPopup')">VDO</div>
+  <div class="B" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'managPopup')"></div>
+पटवार</div>
 <div class="R">
-  <div class="B" style="--btn-bg:#E8D7FF;" onclick="togglePopup(this, 'P13')">RJS</div>
-  <div class="B" style="--btn-bg:#E8D7FF;" onclick="togglePopup(this, 'P14')">FSO</div>
+  <div class="B" style="--btn-bg:#ffe5b4;" onclick="togglePopup(this, 'pePopup')">Raj Police</div>
 </div>
 
-<div class="R">
-  <div class="B" style="--btn-bg:#E8D7FF;" onclick="togglePopup(this, 'P15')">BSTC</div>
+<div class="popup" id="gkPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Parth</li>
+    <li>Utkarsh</li>
+    <li>E Zenith</li>
+    <li>Jrf Adda</li>
+    <li>Adda 247</li>
+    <li>Physics Wallah</li>
+    <li>Apni University</li>
+  </ul>
+</div>
+<div class="popup" id="hisPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>History</li>
+    <li>Ganpat Singh 🔥</li>
+    <li>Physics Wallah</li>
+  </ul>
+</div>
+<div class="popup" id="polPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Utkarsh</li>
+    <li>Kalam 🔥</li>
+  </ul>
+</div>
+<div class="popup" id="geoPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+    <li>Apni University</li>
+    <li>Geography Classes 🔥</li>
+  </ul>
+</div>
+<div class="popup" id="mathsPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>IIM 🔥</li>
+    <li>MIM</li>
+    <li>Mathsscare</li>
+  </ul>
+</div>
+<div class="popup" id="hindiPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>माहिया</li>
+    <li>हिंदी रिचा 🔥</li>
+    <li>Adda 247</li>
+    <li>अशोक स्वामी</li>
+  </ul>
+</div>
+<div class="popup" id="englishPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>JEET</li>
+    <li>Jrf Adda</li>
+    <li>Adda 247</li>
+    <li>Physics Wallah</li>
+    <li>English Discovery 🔥</li>
+  </ul>
+</div>
+<div class="popup" id="chemPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>IFAS</li>
+    <li>Ved Prep</li>
+    <li>Pathfinder</li>
+    <li>Chem Academy</li>
+    <li>Physics Wallah</li>
+    <li>Saraswati Sham</li>
+  </ul>
+</div>
+<div class="popup" id="physicsPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>IFAS</li>
+    <li>A Singh 🔥</li>
+    <li>Physics Wallah</li>
+  </ul>
+</div>
+<div class="popup" id="bioPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>IFAS 🔥</li>
+    <li>Vedprep</li>
+    <li>TNS Concept</li>
+    <li>Physics Wallah</li>
+  </ul>
 </div>
 
-
-
-<!-- BUTTONS GROUP – 6 (Light Peach) -->
-<div class="R">
-  <div class="B" style="--btn-bg:#FFE6D9;" onclick="togglePopup(this, 'P16')">VDO</div>
-  <div class="B" style="--btn-bg:#FFE6D9;" onclick="togglePopup(this, 'P17')">PATWAR</div>
+<div class="popup" id="ecoPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+    <li>E Zenith 🔥</li>
+    <li>Physics Wallah</li>
+  </ul>
+</div>
+<div class="popup" id="comPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+    <li>E Zenith 🔥</li>
+    <li>Physics Wallah</li>
+  </ul>
+</div>
+<div class="popup" id="csPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+    <li>Physics Wallah</li>
+  </ul>
+</div>
+<div class="popup" id="socioPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+    <li>Physics Wallah</li>
+  </ul>
+</div>
+<div class="popup" id="envPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+    <li>Physics Wallah</li>
+  </ul>
+</div>
+<div class="popup" id="homesciPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+  </ul>
+</div>
+<div class="popup" id="lawPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+    <li>Physics Wallah</li>
+  </ul>
+</div>
+<div class="popup" id="managPopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+    <li>Physics Wallah</li>
+  </ul>
+</div>
+<div class="popup" id="pePopup">
+  <span class="close" onclick="closePopup()">×</span>
+  <ul>
+    <li>Jrf Adda</li>
+    <li>Physics Wallah</li>
+    <li>Schlolor Mantra</li>
+  </ul>
 </div>
 
-<div class="R">
-  <div class="B" style="--btn-bg:#FFE6D9;" onclick="togglePopup(this, 'P18')">RAJ POLICE</div>
-</div>
-
-
-
-<!-- POPUPS -->
-<div class="popup" id="P1"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P2"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P3"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-
-<div class="popup" id="P4"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P5"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P6"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-
-<div class="popup" id="P7"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P8"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P9"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-
-<div class="popup" id="P10"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P11"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P12"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-
-<div class="popup" id="P13"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P14"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P15"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-
-<div class="popup" id="P16"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P17"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-<div class="popup" id="P18"><span class="close" onclick="closePopup()">×</span><ul><li>List will update soon</li></ul></div>
-
-
-
-<!-- STYLE -->
 <style>
-
 .R {
   display: flex;
-  gap: 22px;
+  gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 32px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .B {
+  --btn-bg: #b9fbc0;
   position: relative;
-  padding: 10px 18px;
-  min-width: 110px;
+  display: inline-block;
+  padding: 13px 22px;
+  min-width: 105px;
+  text-align: center;
   background: var(--btn-bg);
-  border-radius: 25px;
-  border: 2px solid rgba(0,0,0,0.2);
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   color: #333;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: 0.3s;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: bobbing 2s infinite alternate;
+  font-size: 15px;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
 .B:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .B.active {
-  background-color: color-mix(in srgb, var(--btn-bg) 75%, black);
+  background-color: color-mix(in srgb, var(--btn-bg) 85%, black);
 }
 
 .B::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -80%;
+  left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.5) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
   animation: shine 2s infinite;
 }
 
+@keyframes bobbing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
 @keyframes shine {
-  0% { left: -80%; }
-  100% { left: 130%; }
+  0% { left: -75%; }
+  100% { left: 125%; }
 }
 
 .popup {
   position: fixed;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(6px);
-  padding: 18px 22px;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  padding: 20px 25px 15px 25px;
+  width: auto;
+  min-width: 160px;
+  max-width: 80%;
+  text-align: left;
   opacity: 0;
-  pointer-events: none;
-  transform: scale(0.85);
-  transition: 0.3s;
+  transform: scale(0.7);
+  transition: all 0.35s ease;
   z-index: 9999;
+  pointer-events: none;
 }
 
 .popup.active {
   opacity: 1;
+  transform: scale(1) translateY(0);
   pointer-events: auto;
-  transform: scale(1);
 }
 
 .popup ul {
+  list-style: none;
   padding: 0;
   margin: 0;
-  list-style: none;
+}
+
+.popup li {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 8px 0;
+  opacity: 1;
+  white-space: nowrap;
 }
 
 .close {
   position: absolute;
-  right: 10px;
   top: 8px;
+  right: 10px;
   font-size: 20px;
+  color: gray;
   cursor: pointer;
+  user-select: none;
 }
 
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.7); }
+}
 </style>
 
-
-
-<!-- SCRIPT -->
 <script>
-
 let activePopup = null;
 let activeButton = null;
+let scrollTimer = null;
 
-function togglePopup(button, id) {
+function forceReflow(el){ void el.offsetWidth; }
 
-  const popup = document.getElementById(id);
+function positionPopup(button, popup) {
   const rect = button.getBoundingClientRect();
 
-  popup.style.display = "block";
+  const prevDisplay = popup.style.display;
+  const prevVisibility = popup.style.visibility;
+  const prevTransform = popup.style.transform;
+
   popup.style.visibility = "hidden";
+  popup.style.display = "block";
+  popup.style.transform = "scale(1)";
 
-  const popupHeight = popup.offsetHeight;
-  const popupWidth = popup.offsetWidth;
+  const naturalWidth  = Math.max(popup.offsetWidth, 180);
+  const naturalHeight = popup.offsetHeight;
 
-  popup.style.display = "";
-  popup.style.visibility = "";
+  popup.style.display = prevDisplay || "";
+  popup.style.visibility = prevVisibility || "";
+  popup.style.transform = prevTransform || "";
 
-  const spaceBelow = window.innerHeight - rect.bottom;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const margin = 10;
+  const gap = 8;
+
+  let left = rect.left + (rect.width - naturalWidth) / 2;
+
+const belowTop = rect.bottom + gap;
+  const belowFits = naturalHeight <= (vh - belowTop - margin);
+
+  const aboveTop = rect.top - naturalHeight - gap;
+  const aboveFits = aboveTop >= margin;
+
   let top;
+  let scale = 1;
 
-  if (popupHeight + 10 <= spaceBelow) {
-    top = rect.bottom + window.scrollY + 8;
+  if (belowFits) {
+    top = belowTop;
+  } else if (aboveFits) {
+    top = aboveTop;
   } else {
-    top = rect.top + window.scrollY - popupHeight - 8;
+    const maxHeight = vh - 2 * margin;
+    const maxWidth  = vw - 2 * margin;
+    const sH = maxHeight / naturalHeight;
+    const sW = maxWidth / naturalWidth;
+    scale = Math.min(1, sH, sW);
+
+    const scaledW = naturalWidth * scale;
+    const scaledH = naturalHeight * scale;
+
+    const btnCx = rect.left + rect.width / 2;
+    const btnCy = rect.top + rect.height / 2;
+
+    left = btnCx - scaledW / 2;
+    top  = btnCy - scaledH / 2;
+
+    left = Math.max(margin, Math.min(vw - margin - scaledW, left));
+    top  = Math.max(margin, Math.min(vh - margin - scaledH, top));
   }
 
-  let left = rect.left + rect.width / 2 - popupWidth / 2;
-  left = Math.max(10, Math.min(left, window.innerWidth - popupWidth - 10));
+  left = Math.max(margin, Math.min(vw - margin - naturalWidth, left));
 
-  popup.style.top = top + "px";
-  popup.style.left = left + "px";
+  popup.style.left = Math.round(left) + "px";
+  popup.style.top  = Math.round(top) + "px";
+
+  return scale;
+}
+
+function togglePopup(button, popupId) {
+  const popup = document.getElementById(popupId);
 
   if (popup.classList.contains("active")) {
     closePopup();
-  } else {
-    document.querySelectorAll(".popup").forEach(p => p.classList.remove("active"));
-    document.querySelectorAll(".B").forEach(b => b.classList.remove("active"));
-
-    popup.classList.add("active");
-    button.classList.add("active");
-
-    activePopup = popup;
-    activeButton = button;
+    return;
   }
+
+  document.querySelectorAll(".popup").forEach(p => {
+    p.classList.remove("active");
+    p.style.transform = "";
+  });
+  document.querySelectorAll(".B").forEach(b => b.classList.remove("active"));
+
+  const scale = positionPopup(button, popup);
+
+  popup.classList.remove("active");
+  popup.style.transition = "none";
+  popup.style.transform = "scale(0.7)";
+  forceReflow(popup);
+  popup.style.transition = "";
+
+  if (scale === 1) {
+    popup.style.transform = "";
+  } else {
+    popup.style.transform = "scale(" + scale + ")";
+  }
+
+  popup.classList.add("active");
+  button.classList.add("active");
+
+  activePopup = popup;
+  activeButton = button;
 }
 
 function closePopup() {
-  if (activePopup) activePopup.classList.remove("active");
+  if (activePopup) {
+    activePopup.style.transform = "";
+    forceReflow(activePopup);
+    activePopup.classList.remove("active");
+  }
   if (activeButton) activeButton.classList.remove("active");
   activePopup = null;
   activeButton = null;
 }
 
+window.addEventListener("scroll", () => {
+  if (!activePopup) return;
+  if (scrollTimer) clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(closePopup, 3000);
+}, { passive: true });
+
+window.addEventListener("resize", () => {
+  if (!activePopup || !activeButton) return;
+  const s = positionPopup(activeButton, activePopup);
+  if (s === 1) activePopup.style.transform = "";
+  else activePopup.style.transform = "scale(" + s + ")";
+});
 </script>
